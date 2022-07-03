@@ -32,8 +32,7 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    from .api import students,classes
-    app.register_blueprint(students.bp)
-    app.register_blueprint(classes.bp)
+    from .controllers import employees
+    app.register_blueprint(employees.bp)
 
     return app
