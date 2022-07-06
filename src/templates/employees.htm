@@ -1,0 +1,11 @@
+{% extends "main.htm" %}
+{% block content %}
+    <h1>Employee Listing</h1>
+    <div class="list-group">
+        {% for employee in employees %}
+            <a href="#" class="list-group-item list-group-item-action">
+                {{ employee.last_name }}, {{ employee.first_name }}
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}
