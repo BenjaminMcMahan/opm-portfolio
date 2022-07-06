@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, abort, request
+from flask import Blueprint, jsonify, render_template
 from ..models import Employee, db
 
 bp = Blueprint('employees', __name__, url_prefix='/employees')
@@ -12,8 +12,4 @@ def index():
     :return: List of Employees in JSON
     """
     employees = Employee.query.all()
-    result = []
-    for employee in employees:
-        result.append(employee.serialize())
-
-    return jsonify(result)
+    return render_template('employees.htm', title="Employees Listing", employees=employees)
